@@ -1,4 +1,5 @@
 from module.screen import main
+from module.query import list
 import sqlite3
 import tkinter
 
@@ -21,14 +22,9 @@ def show(canvas):
     box2_list.place(x=150, y=150)
 
     def back():
-        db = "company.db"
-        conn = sqlite3.connect(db)
-        cur = conn.cursor()
+        company_name = box1_list.get()
 
-        for row in cur.execute(f"SELECT * from abc"):
-            box2_list.insert(tkinter.END, f"{row}\n")
+        box1_list.delete(0, tkinter.END)
 
-        conn.commit()
-        conn.close()
-
+        list.send(company_name, box2_list)
     

@@ -1,5 +1,8 @@
 from module.screen import main
+from module.query import put
 import tkinter
+import random
+import names
 
 def show(canvas):
     canvas.place_forget()
@@ -10,54 +13,38 @@ def show(canvas):
     btn1_put = tkinter.Button(canvas_put, text='Top', command=lambda: main.show(canvas_put))
     btn1_put.place(x=0, y=0)
 
-    label1_put = tkinter.Label(text='操作を選択してください')
-    label1_put.place(x=325,y=100)
-
-    btn2_put = tkinter.Button(canvas_put, text='社員データ更新', width=10, command=lambda: show_detail_1(canvas_put))
-    btn2_put.place(x=350,y=150)
-
-    btn3_put = tkinter.Button(canvas_put, text='社員データ追加', width=10, command=lambda: show_detail_2(canvas_put))
-    btn3_put.place(x=350,y=200)
-
-def show_detail_1(canvas):
-    canvas.place_forget()
-
-    canvas_put_detail_1 = tkinter.Canvas(width=800, height=400)
-    canvas_put_detail_1.place(x=0, y=0)
-
-    btn1_put_detail_1 = tkinter.Button(canvas_put_detail_1, text='Top', command=lambda: main.show(canvas_put_detail_1))
-    btn1_put_detail_1.place(x=0, y=0)
-
-    label1_put_detail_1 = tkinter.Label(text='社名を入力してください')
-    label1_put_detail_1.place(x=335,y=100)
+    label1_put = tkinter.Label(text='社名を入力してください')
+    label1_put.place(x=335,y=100)
     
-    box1_put_detail_1 = tkinter.Entry(canvas_put_detail_1, width=10)
-    box1_put_detail_1.place(x=350, y=125)
+    box1_put = tkinter.Entry(canvas_put, width=10)
+    box1_put.place(x=350, y=125)
 
-    label2_put_detail_1 = tkinter.Label(text='更新する社員名を入力してください')
-    label2_put_detail_1.place(x=325,y=200)
+    label2_put = tkinter.Label(text='追加する社員数を入力してください')
+    label2_put.place(x=325,y=200)
 
-    box2_put_detail_1 = tkinter.Entry(canvas_put_detail_1, width=10)
-    box2_put_detail_1.place(x=350, y=225)
+    box2_put = tkinter.Entry(canvas_put, width=10)
+    box2_put.place(x=350, y=225)
 
-def show_detail_2(canvas):
-    canvas.place_forget()
+    btn2_put = tkinter.Button(canvas_put, text='更新', width=7, command=lambda: back())
+    btn2_put.place(x=350,y=300)
 
-    canvas_put_detail_2 = tkinter.Canvas(width=800, height=400)
-    canvas_put_detail_2.place(x=0, y=0)
+    def back():
+        company_name = box1_put.get()
+        employee_numbers = int(box2_put.get())
+        company_departments = ["Accounting", "Finance", "Planning", "Sales", "Engineering", "Design", "Management"]
+        company_employees_data = []
 
-    btn1_put_detail_2 = tkinter.Button(canvas_put_detail_2, text='Top', command=lambda: main.show(canvas_put_detail_2))
-    btn1_put_detail_2.place(x=0, y=0)
+        for i in range(0, employee_numbers):
+            id = company_name + "_" + str(random.randint(1000, 9999))
+            name = names.get_full_name()
+            age = random.randint(20, 50)
+            department = random.choice(company_departments)
 
-    label1_put_detail_2 = tkinter.Label(text='社名を入力してください')
-    label1_put_detail_2.place(x=335,y=100)
-    
-    box1_put_detail_2 = tkinter.Entry(canvas_put_detail_2, width=10)
-    box1_put_detail_2.place(x=350, y=125)
+            company_employees_data.append({"id":id, "name":name, "age":age, "department":department})
 
-    label2_put_detail_2 = tkinter.Label(text='追加する社員数を入力してください')
-    label2_put_detail_2.place(x=325,y=200)
+        box1_put.delete(0, tkinter.END)
+        box2_put.delete(0, tkinter.END)
 
-    box2_put_detail_2 = tkinter.Entry(canvas_put_detail_2, width=10)
-    box2_put_detail_2.place(x=350, y=225)
+        put.send(company_name, company_employees_data)
+
 

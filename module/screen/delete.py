@@ -1,4 +1,5 @@
 from module.screen import main
+from module.query import delete
 import tkinter
 
 def show(canvas):
@@ -35,8 +36,15 @@ def show_detail_1(canvas):
     box1_delete_detail_1 = tkinter.Entry(canvas_delete_detail_1, width=10)
     box1_delete_detail_1.place(x=350, y=125)
 
-    btn2_delete_detail_1 = tkinter.Button(canvas_delete_detail_1, text='削除', width=7)
+    btn2_delete_detail_1 = tkinter.Button(canvas_delete_detail_1, text='削除', width=7, command=lambda: back())
     btn2_delete_detail_1.place(x=350,y=200)
+
+    def back():
+        company_name = box1_delete_detail_1.get()
+
+        box1_delete_detail_1.delete(0, tkinter.END)
+
+        delete.send(company_name, None)
 
 def show_detail_2(canvas):
     canvas.place_forget()
@@ -59,7 +67,18 @@ def show_detail_2(canvas):
     box2_delete_detail_2 = tkinter.Entry(canvas_delete_detail_2, width=10)
     box2_delete_detail_2.place(x=350, y=225)
 
-    btn2_delete_detail_2 = tkinter.Button(canvas_delete_detail_2, text='削除', width=7)
+    btn2_delete_detail_2 = tkinter.Button(canvas_delete_detail_2, text='削除', width=7, command=lambda: back())
     btn2_delete_detail_2.place(x=350,y=300)
+
+    def back():
+        company_name = box1_delete_detail_2.get()
+        employee_name = box2_delete_detail_2.get()
+
+        box1_delete_detail_2.delete(0, tkinter.END)
+        box2_delete_detail_2.delete(0, tkinter.END)
+
+        delete.send(company_name, employee_name)
+
+
 
     
