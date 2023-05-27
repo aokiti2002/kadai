@@ -1,4 +1,4 @@
-from module.screen import model, main
+from module.front import model, main
 
 if __name__ == '__main__':
     model.make()
