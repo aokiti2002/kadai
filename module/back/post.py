@@ -4,6 +4,7 @@ import sqlite3
 import os
 import json
 
+#POSTメソッド設定
 def system(box1_post, box2_post):
     db = "company.db"
     conn = sqlite3.connect(db)

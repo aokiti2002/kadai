@@ -1,5 +1,6 @@
 import tkinter
 
+#UI生成
 def make():
     global screen, canvas
     

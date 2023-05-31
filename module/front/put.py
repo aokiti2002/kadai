@@ -2,6 +2,7 @@ from module.front import main
 from module.back import put
 import tkinter
 
+#更新画面のUI設定
 def show(canvas):
     canvas.place_forget()
 
@@ -25,6 +26,3 @@ def show(canvas):
 
     btn2_put = tkinter.Button(canvas_put, text='更新', width=7, command=lambda: put.system(box1_put, box2_put))
     btn2_put.place(x=350,y=300)
-        
-
-

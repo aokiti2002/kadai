@@ -2,6 +2,7 @@ import tkinter
 import sqlite3
 import re
 
+#GETメソッド設定
 def system(box1_list, box2_list):
     db = "company.db"
     conn = sqlite3.connect(db)

@@ -2,6 +2,7 @@ from module.front import main
 from module.back import delete
 import tkinter
 
+#削除画面のUI設定
 def show(canvas):
     canvas.place_forget()
 
@@ -20,7 +21,7 @@ def show(canvas):
     btn3_delete = tkinter.Button(canvas_delete, text='社員データ', width=10, command=lambda: show_detail_2(canvas_delete))
     btn3_delete.place(x=350,y=200)
 
-
+#会社データ削除画面のUI設定
 def show_detail_1(canvas):
     canvas.place_forget()
 
@@ -36,6 +37,7 @@ def show_detail_1(canvas):
     box1_delete_detail_1 = tkinter.Entry(canvas_delete_detail_1, width=10)
     box1_delete_detail_1.place(x=350, y=125)
 
+    
     btn2_delete_detail_1 = tkinter.Button(canvas_delete_detail_1, text='削除', width=7, command=lambda: delete.system(box1_delete_detail_1, None))
     btn2_delete_detail_1.place(x=350,y=200)
 
@@ -62,7 +64,3 @@ def show_detail_2(canvas):
 
     btn2_delete_detail_2 = tkinter.Button(canvas_delete_detail_2, text='削除', width=7, command=lambda: delete.system(box1_delete_detail_2, box2_delete_detail_2))
     btn2_delete_detail_2.place(x=350,y=300)
-
-
-
-    

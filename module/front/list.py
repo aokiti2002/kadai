@@ -2,6 +2,7 @@ from module.front import main
 from module.back import list
 import tkinter
 
+#一覧画面のUI設定
 def show(canvas):
     canvas.place_forget()
 
@@ -19,5 +20,3 @@ def show(canvas):
 
     btn2_list = tkinter.Button(canvas_list, text='検索', command=lambda: list.system(box1_list, box2_list))
     btn2_list.place(x=425,y=100)
-        
-    

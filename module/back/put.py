@@ -4,6 +4,7 @@ import sqlite3
 import random
 import names
 
+#PUTメソッド設定
 def system(box1_put, box2_put):
     db = "company.db"
     conn = sqlite3.connect(db)

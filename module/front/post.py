@@ -2,6 +2,7 @@ from module.front import main
 from module.back import post
 import tkinter
 
+#新規登録画面のUI設定
 def show(canvas):
     canvas.place_forget()
 
@@ -25,7 +26,3 @@ def show(canvas):
 
     btn2_post = tkinter.Button(canvas_post, text='登録', width=7, command=lambda: post.system(box1_post, box2_post))
     btn2_post.place(x=350,y=300)
-        
-
-
-    

@@ -1,6 +1,7 @@
 import tkinter
 import sqlite3
 
+#DELETEメソッド設定
 def system(box1_delete, box2_delete):
     db = "company.db"
     conn = sqlite3.connect(db)

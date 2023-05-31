@@ -1,6 +1,7 @@
 from module.front import model, post, put, delete, list
 import tkinter
 
+#メイン画面のUI設定
 def show(canvas):
     canvas.place_forget()
 

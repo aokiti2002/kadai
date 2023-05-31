@@ -1,5 +1,6 @@
 import random
 
+#従業員データ生成
 def employee_info(company_name, company_employees_number):
     data = []
 
@@ -26,6 +27,5 @@ def employee_info(company_name, company_employees_number):
         department = random.choice(departments)
 
         data.append({"id":id, "name":name, "age":age, "department":department})
-
 
     return data
